@@ -8,7 +8,9 @@ const dbInit = {
 		const secret = c.req.param('secret');
 
 		if (secret !== c.env.jwt_secret) {
-			return c.text('❌ JWT secret mismatch')+secret+c.env.jwt_secret;
+			console.log(secret);
+			console.log(c.env.jwt_secret);
+			return c.text('❌ JWT secret mismatch');
 		}
 
 		await this.intDB(c);
